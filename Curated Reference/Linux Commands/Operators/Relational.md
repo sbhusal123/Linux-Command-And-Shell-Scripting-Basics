@@ -1,0 +1,122 @@
+# Relational Operators
+
+- Are used for comparing numbers and string.
+
+- Often used with if, while loops for condition checks.
+
+## Numeric Relationl Operator:
+
+- Used only for numeric value checks.
+
+| **Operator** | **Description**              | **Example**            |
+|--------------|------------------------------|------------------------|
+| `-eq`        | Equal to                     | `[ $a -eq $b ]`        |
+| `-ne`        | Not equal to                 | `[ $a -ne $b ]`        |
+| `-lt`        | Less than                    | `[ $a -lt $b ]`        |
+| `-le`        | Less than or equal to        | `[ $a -le $b ]`        |
+| `-gt`        | Greater than                 | `[ $a -gt $b ]`        |
+| `-ge`        | Greater than or equal to     | `[ $a -ge $b ]`        |
+
+**One Liners:**
+
+```bash
+> a = 1
+> b = 2
+
+> [ $a -eq $b ] && echo "$a and $b are equal" || echo "Both are not equal."
+# Output: Both are not equal.
+
+> [ $a -ne $b ] && echo "$a and $b are not equal" || echo "Both are equal."
+> 1 and 2 are not equal.
+
+```
+
+> Common Syntax for one liner is: ``[ <test_condn> ] && <if_true> || <if_false>``
+
+**With Loop:**
+
+```bash
+#!/bin/bash
+a=1
+b=2
+
+if [ $a -eq $b ]; then
+    echo "Both are equal."
+else
+    echo "Both are not equal."
+fi
+```
+
+
+## String Relational Operator
+
+| **Operator** | **Description**                                   | **Example**              |
+|--------------|---------------------------------------------------|--------------------------|
+| `=`          | Strings are equal                                | `[ "$str1" = "$str2" ]`  |
+| `!=`         | Strings are not equal                            | `[ "$str1" != "$str2" ]` |
+| `<`          | String 1 is less than String 2 (lexicographically) | `[ "$str1" \< "$str2" ]` |
+| `>`          | String 1 is greater than String 2 (lexicographically) | `[ "$str1" \> "$str2" ]` |
+| `-z`         | String is empty                                  | `[ -z "$str" ]`          |
+| `-n`         | String is not empty                              | `[ -n "$str" ]`          |
+
+> Note that escape character `\` is required for `<` and `>`. For string comparision, it does so by comparing string lexicographically.
+
+> **Note that: space around [] is required. i.e: [ <test_condition> ]**
+
+```bash
+> [ "asd" = "asd" ] && echo "Strings are equal" || echo "Strings are different."
+# Output: Strings are equal
+
+> [ "abc" != "def" ] && echo "Strings are different" || echo "String are same."
+# Output: Strings are different.
+
+> [ "a" \< "b" ] && echo "Lexicographically a is less than b" || echo "Lexicographically a is greater than b."
+# Output: Lexicographically a is less than b
+
+> [ "b" \< "a" ] && echo "Lexicographically b is less than a" || echo "Lexicographically b is greater than a."
+# Output: Lexicographically b is greater than a.
+
+>  [ "b" \> "a" ] && echo "Lexicographically b is greater than a" || echo "Lexicographically b is less than a."
+# Output: Lexicographically b is greater than a
+
+# Empty string check
+> [ -z "" ] && echo "Empty string" || echo "Non empty string"
+# Output: Empty string
+
+# Non Empty String
+> [ -z "asd" ] && echo "Empty string" || echo "Non empty string"
+# Output: Non empty string
+
+> [ -n "asd" ] && echo "Non empty." || echo "empty string"
+# Output: Non empty
+
+> [ -n "" ] && echo "Non empty." || echo "empty string"
+# Output: empty string
+```
+
+**Usage with conditionals:**
+
+```bash
+if [ "$a" == "$b" ]; then
+    # stmt
+fi
+
+if [ "$a" != "$b" ]; then
+    # stmt
+fi
+
+# note the escape character
+if [ "$a" \< "$b" ]; then
+    # stmt
+fi
+
+# empty check
+if [ -z "$a" ]; then
+    # stmt
+fi
+
+# non empty check
+if [ -n "$a" ]; then
+    # stmt
+fi
+```
