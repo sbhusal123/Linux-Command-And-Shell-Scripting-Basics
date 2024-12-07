@@ -15,3 +15,4 @@ fi
 
 - **Re-execute the last command:** ``!!``
 
+- **Check the current shell interpreter:** ``echo $SHELL``
