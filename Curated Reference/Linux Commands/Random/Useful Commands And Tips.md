@@ -16,3 +16,5 @@ fi
 - **Re-execute the last command:** ``!!``
 
 - **Check the current shell interpreter:** ``echo $SHELL``
+
+- **View directories only in current directory:** ``ls -d */``
