@@ -18,3 +18,17 @@ fi
 - **Check the current shell interpreter:** ``echo $SHELL``
 
 - **View directories only in current directory:** ``ls -d */``
+
+- **Shell Autocompletions:**
+
+```bash
+# install autocompletion
+sudo apt install bash-completion
+
+# content for .bashrc
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+elif [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+fi
+```
