@@ -22,7 +22,7 @@ Basically user and group management command goes like:
 - groupdel => delete a group
 ```
 
-### Other way
+### 1.2. Other way
 
 ```bash
 <add|del><user|group>
